@@ -6,10 +6,10 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "daws78s-remote-state"
-    key    = "jenkins"
+    bucket = "devopsme-remote-state"
+    key    = "jenkins"  # always change key name for every new resourec
     region = "us-east-1"
-    dynamodb_table = "daws78s-locking"
+    dynamodb_table = "devopsme-locking"
   }
 }
 
