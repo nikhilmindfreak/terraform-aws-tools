@@ -80,7 +80,7 @@ module "records" {
       type    = "A"
       ttl     = 1
       records = [
-        module.jenkins_agent.private_ip
+        module.jenkins_agent.private_ip  # we gave private for practice 
       ]
       allow_overwrite = true
     },
