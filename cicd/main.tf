@@ -59,21 +59,21 @@ module "nexus" {
   }
 }
 
-module "sonarQube" {
-  source  = "terraform-aws-modules/ec2-instance/aws"
+# module "sonarQube" {
+#   source  = "terraform-aws-modules/ec2-instance/aws"
 
-  name = "sonarQube"
+#   name = "sonarQube"
 
-  instance_type          = "t3.medium"
-  vpc_security_group_ids = ["sg-0d41e315f829ef112"]
-  # convert StringList to list and get first element
-  subnet_id = "subnet-0cebff8597f9b2e03"
-  ami = data.aws_ami.nexus_ami_info.id
-  key_name = aws_key_pair.tools.key_name
-  tags = {
-    Name = "sonarQube"
-  }
-}
+#   instance_type          = "t3.medium"
+#   vpc_security_group_ids = ["sg-0d41e315f829ef112"]
+#   # convert StringList to list and get first element
+#   subnet_id = "subnet-0cebff8597f9b2e03"
+#   ami = data.aws_ami.nexus_ami_info.id
+#   key_name = aws_key_pair.tools.key_name
+#   tags = {
+#     Name = "sonarQube"
+#   }
+# }
 
 module "records" {
   source  = "terraform-aws-modules/route53/aws//modules/records"
@@ -109,17 +109,17 @@ module "records" {
         module.nexus.private_ip
       ]
       allow_overwrite = true
-    },
-     {
-      name    = "sonarQube"
-      type    = "A"
-      ttl     = 1
-      allow_overwrite = true
-      records = [
-        module.sonarQube.private_ip
-      ]
-      allow_overwrite = true
     }
+    #  {
+    #   name    = "sonarQube"
+    #   type    = "A"
+    #   ttl     = 1
+    #   allow_overwrite = true
+    #   records = [
+    #     module.sonarQube.private_ip
+    #   ]
+    #   allow_overwrite = true
+    # }
   ]
 
 }

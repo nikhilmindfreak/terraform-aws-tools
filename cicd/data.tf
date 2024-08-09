@@ -41,23 +41,23 @@ data "aws_ami" "nexus_ami_info" {
     }
 }
 
-data "aws_ami" "sonarQube_ami_info" {
+# data "aws_ami" "sonarQube_ami_info" {
 
-    most_recent = true
-    owners = ["851725263054"]
+#     most_recent = true
+#     owners = ["851725263054"]
 
-    filter {
-        name   = "name"
-        values = ["SolveDevOps-SonarQube-Server-Ubuntu20.04-20240511-*"]
-    }
+#     filter {
+#         name   = "name"
+#         values = ["SolveDevOps-SonarQube-Server-Ubuntu20.04-20240511-*"]
+#     }
 
-    filter {
-        name   = "root-device-type"
-        values = ["ebs"]
-    }
+#     filter {
+#         name   = "root-device-type"
+#         values = ["ebs"]
+#     }
 
-    filter {
-        name   = "virtualization-type"
-        values = ["hvm"]
-    }
-}
+#     filter {
+#         name   = "virtualization-type"
+#         values = ["hvm"]
+#     }
+# }
