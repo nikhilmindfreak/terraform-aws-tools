@@ -4,7 +4,6 @@
 * Pipeline stage view
 * AnsiColor
 * Pipeline Utility Steps
-* Pipeline Utility Steps
 * Nexus Artifact Uploader
 * Rebuild
 
